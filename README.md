@@ -1,7 +1,8 @@
 <!-- Dashboard Preview -->
 <p align="center">
-  <img src="/dashboard.png" alt="Admin Dashboard Preview" width="800" />
+  <img src="public/dashboard.png" alt="Admin Dashboard Preview" width="800" />
 </p>
+
 
 # 🛠️ Admin Dashboard (Next.js)
 
