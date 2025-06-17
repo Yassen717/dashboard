@@ -1,103 +1,91 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function OverviewPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <section style={{ flex: 1, padding: '0 2rem' }}>
+      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>Overview</h1>
+      <div style={{ color: '#64748b', marginBottom: 32 }}>Monitor system activities and manage applications</div>
+      {/* Cards */}
+      <div style={{ display: 'flex', gap: 24, marginBottom: 32 }}>
+        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
+          <div style={{ color: '#64748b', marginBottom: 8 }}>Total Applications</div>
+          <div style={{ fontSize: 28, fontWeight: 700 }}>25</div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
+          <div style={{ color: '#64748b', marginBottom: 8 }}>Active Users</div>
+          <div style={{ fontSize: 28, fontWeight: 700 }}>1,500</div>
+        </div>
+        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
+          <div style={{ color: '#64748b', marginBottom: 8 }}>System Uptime</div>
+          <div style={{ fontSize: 28, fontWeight: 700 }}>99.9%</div>
+        </div>
+      </div>
+      {/* Real-time Metrics */}
+      <div style={{ marginBottom: 32 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 16 }}>Real-time Metrics</h2>
+        <div style={{ display: 'flex', gap: 24 }}>
+          <div style={{ flex: 1, background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 3px #0001' }}>
+            <div style={{ color: '#64748b', marginBottom: 8 }}>Application Performance</div>
+            <div style={{ fontSize: 24, fontWeight: 700, color: '#16a34a' }}>+15%</div>
+            <div style={{ color: '#16a34a', marginBottom: 16 }}>Last 7 Days +15%</div>
+            {/* Placeholder for line chart */}
+            <div style={{ height: 80, background: '#f1f5f9', borderRadius: 8 }} />
+          </div>
+          <div style={{ flex: 1, background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 3px #0001' }}>
+            <div style={{ color: '#64748b', marginBottom: 8 }}>User Engagement</div>
+            <div style={{ fontSize: 24, fontWeight: 700, color: '#dc2626' }}>-5%</div>
+            <div style={{ color: '#dc2626', marginBottom: 16 }}>Last 30 Days -5%</div>
+            {/* Placeholder for bar chart */}
+            <div style={{ height: 80, background: '#f1f5f9', borderRadius: 8 }} />
+          </div>
+        </div>
+      </div>
+      {/* Recent Events */}
+      <div>
+        <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 16 }}>Recent Events</h2>
+        <table style={{ width: '100%', background: '#fff', borderRadius: 12, boxShadow: '0 1px 3px #0001', overflow: 'hidden' }}>
+          <thead style={{ background: '#f1f5f9' }}>
+            <tr>
+              <th style={{ textAlign: 'left', padding: 12 }}>Event</th>
+              <th style={{ textAlign: 'left', padding: 12 }}>Timestamp</th>
+              <th style={{ textAlign: 'left', padding: 12 }}>Status</th>
+              <th style={{ textAlign: 'left', padding: 12 }}>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={{ padding: 12 }}>Application Launched</td>
+              <td style={{ padding: 12 }}>2024-07-26 10:00 AM</td>
+              <td style={{ padding: 12 }}><span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px' }}>Success</span></td>
+              <td style={{ padding: 12 }}><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td style={{ padding: 12 }}>User Login</td>
+              <td style={{ padding: 12 }}>2024-07-26 10:15 AM</td>
+              <td style={{ padding: 12 }}><span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px' }}>Success</span></td>
+              <td style={{ padding: 12 }}><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td style={{ padding: 12 }}>Data Update</td>
+              <td style={{ padding: 12 }}>2024-07-26 10:30 AM</td>
+              <td style={{ padding: 12 }}><span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px' }}>Success</span></td>
+              <td style={{ padding: 12 }}><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td style={{ padding: 12 }}>System Alert</td>
+              <td style={{ padding: 12 }}>2024-07-26 10:45 AM</td>
+              <td style={{ padding: 12 }}><span style={{ background: '#fef9c3', color: '#ca8a04', borderRadius: 6, padding: '2px 8px' }}>Warning</span></td>
+              <td style={{ padding: 12 }}><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td style={{ padding: 12 }}>Application Shutdown</td>
+              <td style={{ padding: 12 }}>2024-07-26 11:00 AM</td>
+              <td style={{ padding: 12 }}><span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px' }}>Success</span></td>
+              <td style={{ padding: 12 }}><a href="#">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 }
