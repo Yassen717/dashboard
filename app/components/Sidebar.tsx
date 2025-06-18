@@ -1,12 +1,13 @@
 import React from "react";
+import Link from "next/link";
 
 const navItems = [
-  { label: "Overview", href: "#" },
-  { label: "Events", href: "#" },
-  { label: "Metrics", href: "#" },
-  { label: "Logs", href: "#" },
-  { label: "Alerts", href: "#" },
-  { label: "Settings", href: "#" },
+  { label: "Overview", href: "/" },
+  { label: "Events", href: "/events" },
+  { label: "Metrics", href: "/metrics" },
+  { label: "Logs", href: "/logs" },
+  { label: "Alerts", href: "/alerts" },
+  { label: "Settings", href: "/settings" },
 ];
 
 export default function Sidebar() {
@@ -17,7 +18,27 @@ export default function Sidebar() {
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           {navItems.map((item) => (
             <li key={item.label} style={{ marginBottom: 16 }}>
-              <a href={item.href}>{item.label}</a>
+              <Link 
+                href={item.href}
+                style={{ 
+                  display: 'block', 
+                  padding: '8px 12px', 
+                  borderRadius: 6, 
+                  color: '#64748b', 
+                  textDecoration: 'none',
+                  transition: 'all 0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#e2e8f0';
+                  e.currentTarget.style.color = '#1e293b';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#64748b';
+                }}
+              >
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>
