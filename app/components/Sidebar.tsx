@@ -20,22 +20,7 @@ export default function Sidebar() {
             <li key={item.label} style={{ marginBottom: 16 }}>
               <Link 
                 href={item.href}
-                style={{ 
-                  display: 'block', 
-                  padding: '8px 12px', 
-                  borderRadius: 6, 
-                  color: '#64748b', 
-                  textDecoration: 'none',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = '#e2e8f0';
-                  e.currentTarget.style.color = '#1e293b';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = '#64748b';
-                }}
+                className="sidebar-nav-link"
               >
                 {item.label}
               </Link>

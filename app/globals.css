@@ -44,3 +44,18 @@ table {
 th, td {
   font-size: 15px;
 }
+
+/* Sidebar navigation styles */
+.sidebar-nav-link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.sidebar-nav-link:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
