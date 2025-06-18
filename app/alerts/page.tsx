@@ -81,7 +81,7 @@ export default function AlertsPage() {
             <div style={{ fontSize: 12, color: '#64748b' }}>Triggered: 2024-07-26 14:25:15 | Duration: 10m 45s</div>
           </div>
 
-          <div style={{ border: '1px solid '#fecaca', borderRadius: 8, padding: 16, background: '#fef2f2' }}>
+          <div style={{ border: '1px solid #fecaca', borderRadius: 8, padding: 16, background: '#fef2f2' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
@@ -116,7 +116,7 @@ export default function AlertsPage() {
           <tbody>
             <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
               <td style={{ padding: 12 }}>High CPU Usage</td>
-              <td style={{ padding: 12 }}>CPU > 80% for 5 minutes</td>
+              <td style={{ padding: 12 }}>CPU &gt; 80% for 5 minutes</td>
               <td style={{ padding: 12 }}>
                 <span style={{ background: '#fef9c3', color: '#ca8a04', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Warning</span>
               </td>
@@ -142,7 +142,7 @@ export default function AlertsPage() {
             </tr>
             <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
               <td style={{ padding: 12 }}>Memory Usage</td>
-              <td style={{ padding: 12 }}>Memory > 85% for 3 minutes</td>
+              <td style={{ padding: 12 }}>Memory &gt; 85% for 3 minutes</td>
               <td style={{ padding: 12 }}>
                 <span style={{ background: '#fef9c3', color: '#ca8a04', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Warning</span>
               </td>
@@ -155,7 +155,7 @@ export default function AlertsPage() {
             </tr>
             <tr>
               <td style={{ padding: 12 }}>Security Alerts</td>
-              <td style={{ padding: 12 }}>Failed login > 5 attempts</td>
+              <td style={{ padding: 12 }}>Failed login &gt; 5 attempts</td>
               <td style={{ padding: 12 }}>
                 <span style={{ background: '#fef2f2', color: '#dc2626', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Critical</span>
               </td>
