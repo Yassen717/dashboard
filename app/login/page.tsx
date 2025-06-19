@@ -19,7 +19,20 @@ export default function LoginPage() {
     if (error) {
       setError(error.message);
     } else {
-      router.push("/");
+      // Wait for session/cookie to be set before redirecting
+      let tries = 0;
+      const checkSessionAndRedirect = async () => {
+        const { data } = await supabase.auth.getSession();
+        if (data.session) {
+          router.push("/");
+        } else if (tries < 10) {
+          tries++;
+          setTimeout(checkSessionAndRedirect, 100);
+        } else {
+          setError("Login succeeded but session not found. Please try again.");
+        }
+      };
+      checkSessionAndRedirect();
     }
   };
 
