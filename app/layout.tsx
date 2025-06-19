@@ -15,10 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Admin Dashboard ",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
