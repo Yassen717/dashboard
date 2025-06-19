@@ -21,9 +21,12 @@ export default function SignupPage() {
     if (error) {
       setError(error.message);
     } else {
-      setSuccess("Signup successful! Please check your email to confirm your account.");
+      setSuccess("Signup successful! You can now log in.");
       setEmail("");
       setPassword("");
+      setTimeout(() => {
+        router.push("/login");
+      }, 1500);
     }
   };
 
