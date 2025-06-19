@@ -14,25 +14,14 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     setLoading(true);
+
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
+
     if (error) {
       setError(error.message);
     } else {
-      // Wait for session/cookie to be set before redirecting
-      let tries = 0;
-      const checkSessionAndRedirect = async () => {
-        const { data } = await supabase.auth.getSession();
-        if (data.session) {
-          router.push("/");
-        } else if (tries < 10) {
-          tries++;
-          setTimeout(checkSessionAndRedirect, 100);
-        } else {
-          setError("Login succeeded but session not found. Please try again.");
-        }
-      };
-      checkSessionAndRedirect();
+      router.push("/");
     }
   };
 
@@ -72,4 +61,4 @@ export default function LoginPage() {
       </form>
     </section>
   );
-} 
+}
