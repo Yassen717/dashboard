@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { supabase } from "../../lib/supabaseClient";
+import { useAuth } from "../../lib/authContext";
 
 const navItems = [
   { label: "Overview", href: "/" },
@@ -13,20 +13,23 @@ const navItems = [
   { label: "Settings", href: "/settings" },
 ];
 
-export default function Sidebar() {
+const Sidebar = React.memo(function Sidebar() {
   const router = useRouter();
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
+  const { signOut } = useAuth();
+  
+  const handleLogout = React.useCallback(async () => {
+    await signOut();
     router.push("/login");
-  };
+  }, [signOut, router]);
+  
   return (
-    <aside style={{ width: 240, background: '#f1f5f9', minHeight: '100vh', padding: '2rem 1rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-      <div>
-        <div style={{ fontWeight: 700, fontSize: 20, marginBottom: 32 }}>Admin Panel</div>
+    <aside className="sidebar">
+      <div className="sidebar-content">
+        <div className="sidebar-title">Admin Panel</div>
         <nav>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <ul className="sidebar-nav">
             {navItems.map((item) => (
-              <li key={item.label} style={{ marginBottom: 16 }}>
+              <li key={item.label} className="sidebar-nav-item">
                 <Link 
                   href={item.href}
                   className="sidebar-nav-link"
@@ -40,20 +43,12 @@ export default function Sidebar() {
       </div>
       <button
         onClick={handleLogout}
-        style={{
-          width: '100%',
-          padding: '10px 0',
-          borderRadius: 6,
-          background: '#dc2626',
-          color: '#fff',
-          fontWeight: 600,
-          border: 'none',
-          cursor: 'pointer',
-          marginTop: 32,
-        }}
+        className="logout-button"
       >
         Logout
       </button>
     </aside>
   );
-} 
+});
+
+export default Sidebar; 
