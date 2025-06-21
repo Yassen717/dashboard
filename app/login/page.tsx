@@ -12,51 +12,74 @@ export default function LoginPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Login attempt started');
     setError("");
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-
-    if (error) {
-      setError(error.message);
-    } else {
-      router.push("/");
+    try {
+      console.log('Calling Supabase auth...');
+      const { data, error } = await supabase.auth.signInWithPassword({ 
+        email, 
+        password 
+      });
+      
+      console.log('Supabase response:', { data, error });
+      
+      if (error) {
+        console.error('Login error:', error);
+        setError(error.message);
+      } else if (data.user) {
+        console.log('Login successful:', data.user.email);
+        // Add a small delay to ensure cookies are set
+        setTimeout(() => {
+          router.push("/");
+        }, 500);
+      } else {
+        console.error('No user data returned');
+        setError("Login failed - no user data returned");
+      }
+    } catch (err) {
+      console.error('Login exception:', err);
+      setError("An unexpected error occurred");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <section style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#f8fafc' }}>
-      <form onSubmit={handleLogin} style={{ background: '#fff', borderRadius: 12, boxShadow: '0 1px 3px #0001', padding: 32, minWidth: 340 }}>
-        <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 16 }}>Log In</h1>
-        <div style={{ color: '#64748b', marginBottom: 24 }}>Access your admin dashboard</div>
-        {error && <div style={{ color: '#dc2626', marginBottom: 16 }}>{error}</div>}
-        <div style={{ marginBottom: 16 }}>
-          <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Email</label>
+    <section className="login-section">
+      <form onSubmit={handleLogin} className="login-form">
+        <h1 className="login-title">Log In</h1>
+        <div className="login-subtitle">Access your admin dashboard</div>
+        {error && <div className="login-error">{error}</div>}
+        <div className="form-group">
+          <label className="form-label">Email</label>
           <input
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
-            style={{ width: '100%', padding: '10px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#f8fafc' }}
+            className="form-input"
+            placeholder="Enter your email"
           />
         </div>
-        <div style={{ marginBottom: 24 }}>
-          <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Password</label>
+        <div className="form-group">
+          <label className="form-label">Password</label>
           <input
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
             minLength={6}
-            style={{ width: '100%', padding: '10px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#f8fafc' }}
+            className="form-input"
+            placeholder="Enter your password"
           />
         </div>
-        <button type="submit" disabled={loading} style={{ width: '100%', padding: '10px 0', borderRadius: 6, background: '#2563eb', color: '#fff', fontWeight: 600, border: 'none', cursor: 'pointer', marginBottom: 16 }}>
+        <button type="submit" disabled={loading} className="login-button">
           {loading ? 'Logging in...' : 'Log In'}
         </button>
-        <div style={{ textAlign: 'center', color: '#64748b' }}>
-          Don&apos;t have an account? <a href="/signup" style={{ color: '#2563eb' }}>Sign up</a>
+        <div className="login-footer">
+          Don&apos;t have an account? <a href="/signup" className="login-link">Sign up</a>
         </div>
       </form>
     </section>
