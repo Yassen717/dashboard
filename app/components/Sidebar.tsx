@@ -13,7 +13,11 @@ const navItems = [
   { label: "Settings", href: "/settings" },
 ];
 
-const Sidebar = React.memo(function Sidebar() {
+interface SidebarProps {
+  onClose?: () => void;
+}
+
+const Sidebar = React.memo(function Sidebar({ onClose }: SidebarProps) {
   const router = useRouter();
   const { signOut } = useAuth();
   
@@ -21,6 +25,13 @@ const Sidebar = React.memo(function Sidebar() {
     await signOut();
     router.push("/login");
   }, [signOut, router]);
+  
+  const handleNavClick = () => {
+    // Close sidebar on mobile when navigation item is clicked
+    if (onClose) {
+      onClose();
+    }
+  };
   
   return (
     <aside className="sidebar">
@@ -33,6 +44,7 @@ const Sidebar = React.memo(function Sidebar() {
                 <Link 
                   href={item.href}
                   className="sidebar-nav-link"
+                  onClick={handleNavClick}
                 >
                   {item.label}
                 </Link>

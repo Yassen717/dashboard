@@ -31,38 +31,40 @@ export default function SignupPage() {
   };
 
   return (
-    <section style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#f8fafc' }}>
-      <form onSubmit={handleSignup} style={{ background: '#fff', borderRadius: 12, boxShadow: '0 1px 3px #0001', padding: 32, minWidth: 340 }}>
-        <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 16 }}>Sign Up</h1>
-        <div style={{ color: '#64748b', marginBottom: 24 }}>Create your admin account</div>
-        {error && <div style={{ color: '#dc2626', marginBottom: 16 }}>{error}</div>}
-        {success && <div style={{ color: '#16a34a', marginBottom: 16 }}>{success}</div>}
-        <div style={{ marginBottom: 16 }}>
-          <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Email</label>
+    <section className="login-section">
+      <form onSubmit={handleSignup} className="login-form">
+        <h1 className="login-title">Sign Up</h1>
+        <div className="login-subtitle">Create your admin account</div>
+        {error && <div className="login-error">{error}</div>}
+        {success && <div className="login-success">{success}</div>}
+        <div className="form-group">
+          <label className="form-label">Email</label>
           <input
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
-            style={{ width: '100%', padding: '10px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#f8fafc' }}
+            className="form-input"
+            placeholder="Enter your email"
           />
         </div>
-        <div style={{ marginBottom: 24 }}>
-          <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Password</label>
+        <div className="form-group">
+          <label className="form-label">Password</label>
           <input
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
             minLength={6}
-            style={{ width: '100%', padding: '10px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#f8fafc' }}
+            className="form-input"
+            placeholder="Enter your password"
           />
         </div>
-        <button type="submit" disabled={loading} style={{ width: '100%', padding: '10px 0', borderRadius: 6, background: '#2563eb', color: '#fff', fontWeight: 600, border: 'none', cursor: 'pointer', marginBottom: 16 }}>
+        <button type="submit" disabled={loading} className="login-button">
           {loading ? 'Signing up...' : 'Sign Up'}
         </button>
-        <div style={{ textAlign: 'center', color: '#64748b' }}>
-          Already have an account? <a href="/login" style={{ color: '#2563eb' }}>Log in</a>
+        <div className="login-footer">
+          Already have an account? <a href="/login" className="login-link">Log in</a>
         </div>
       </form>
     </section>

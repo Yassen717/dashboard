@@ -57,34 +57,34 @@ export default function OverviewPage() {
           </thead>
           <tbody>
             <tr>
-              <td>Application Launched</td>
-              <td>2024-07-26 10:00 AM</td>
-              <td><span className="status-success">Success</span></td>
-              <td><a href="#">View</a></td>
+              <td data-label="Event">Application Launched</td>
+              <td data-label="Timestamp">2024-07-26 10:00 AM</td>
+              <td data-label="Status"><span className="status-success">Success</span></td>
+              <td data-label="Details"><a href="#">View</a></td>
             </tr>
             <tr>
-              <td>User Login</td>
-              <td>2024-07-26 10:15 AM</td>
-              <td><span className="status-success">Success</span></td>
-              <td><a href="#">View</a></td>
+              <td data-label="Event">User Login</td>
+              <td data-label="Timestamp">2024-07-26 10:15 AM</td>
+              <td data-label="Status"><span className="status-success">Success</span></td>
+              <td data-label="Details"><a href="#">View</a></td>
             </tr>
             <tr>
-              <td>Data Update</td>
-              <td>2024-07-26 10:30 AM</td>
-              <td><span className="status-success">Success</span></td>
-              <td><a href="#">View</a></td>
+              <td data-label="Event">Data Update</td>
+              <td data-label="Timestamp">2024-07-26 10:30 AM</td>
+              <td data-label="Status"><span className="status-success">Success</span></td>
+              <td data-label="Details"><a href="#">View</a></td>
             </tr>
             <tr>
-              <td>System Alert</td>
-              <td>2024-07-26 10:45 AM</td>
-              <td><span className="status-warning">Warning</span></td>
-              <td><a href="#">View</a></td>
+              <td data-label="Event">System Alert</td>
+              <td data-label="Timestamp">2024-07-26 10:45 AM</td>
+              <td data-label="Status"><span className="status-warning">Warning</span></td>
+              <td data-label="Details"><a href="#">View</a></td>
             </tr>
             <tr>
-              <td>Application Shutdown</td>
-              <td>2024-07-26 11:00 AM</td>
-              <td><span className="status-success">Success</span></td>
-              <td><a href="#">View</a></td>
+              <td data-label="Event">Application Shutdown</td>
+              <td data-label="Timestamp">2024-07-26 11:00 AM</td>
+              <td data-label="Status"><span className="status-success">Success</span></td>
+              <td data-label="Details"><a href="#">View</a></td>
             </tr>
           </tbody>
         </table>
