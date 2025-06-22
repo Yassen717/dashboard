@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Sidebar from "./Sidebar";
 
@@ -11,6 +11,11 @@ const ClientLayout = React.memo(function ClientLayout({
   const pathname = usePathname();
   const showSidebar = pathname !== "/login" && pathname !== "/signup";
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    // Close sidebar on route change
+    setSidebarOpen(false);
+  }, [pathname]);
   
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -37,7 +42,7 @@ const ClientLayout = React.memo(function ClientLayout({
             className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`}
             onClick={closeSidebar}
           />
-          <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+          <div className={`sidebar-wrapper ${sidebarOpen ? 'open' : ''}`}>
             <Sidebar onClose={closeSidebar} />
           </div>
         </>
