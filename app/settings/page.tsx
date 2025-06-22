@@ -1,40 +1,40 @@
 export default function SettingsPage() {
   return (
-    <section style={{ flex: 1, padding: '0 2rem' }}>
-      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>Settings</h1>
-      <div style={{ color: '#64748b', marginBottom: 32 }}>System configuration and user preferences</div>
+    <section className="page-section">
+      <h1 className="page-title">Settings</h1>
+      <div className="page-subtitle">System configuration and user preferences</div>
       
       {/* Settings Navigation */}
-      <div style={{ display: 'flex', gap: 24, marginBottom: 32 }}>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
+      <div className="card-grid">
+        <div className="card card-item">
           <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>General</div>
           <div style={{ color: '#64748b', fontSize: 14 }}>Basic system settings</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
+        <div className="card card-item">
           <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>Security</div>
           <div style={{ color: '#64748b', fontSize: 14 }}>Security and access control</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
+        <div className="card card-item">
           <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>Notifications</div>
           <div style={{ color: '#64748b', fontSize: 14 }}>Alert and notification settings</div>
         </div>
       </div>
 
       {/* General Settings */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, marginBottom: 32, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>General Settings</h3>
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <h3 className="section-title">General Settings</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>System Name</label>
+            <label className="form-label">System Name</label>
             <input 
               type="text" 
               defaultValue="Admin Dashboard"
-              style={{ width: '100%', padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}
+              className="form-input"
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Time Zone</label>
-            <select style={{ width: '100%', padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}>
+            <label className="form-label">Time Zone</label>
+            <select className="form-input">
               <option>UTC (Coordinated Universal Time)</option>
               <option>EST (Eastern Standard Time)</option>
               <option>PST (Pacific Standard Time)</option>
@@ -42,16 +42,16 @@ export default function SettingsPage() {
             </select>
           </div>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Date Format</label>
-            <select style={{ width: '100%', padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}>
+            <label className="form-label">Date Format</label>
+            <select className="form-input">
               <option>MM/DD/YYYY</option>
               <option>DD/MM/YYYY</option>
               <option>YYYY-MM-DD</option>
             </select>
           </div>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Language</label>
-            <select style={{ width: '100%', padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}>
+            <label className="form-label">Language</label>
+            <select className="form-input">
               <option>English</option>
               <option>Spanish</option>
               <option>French</option>
@@ -62,19 +62,19 @@ export default function SettingsPage() {
       </div>
 
       {/* Security Settings */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, marginBottom: 32, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>Security Settings</h3>
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <h3 className="section-title">Security Settings</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Session Timeout (minutes)</label>
+            <label className="form-label">Session Timeout (minutes)</label>
             <input 
               type="number" 
               defaultValue="30"
-              style={{ width: '100%', padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}
+              className="form-input"
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Password Policy</label>
+            <label className="form-label">Password Policy</label>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <input type="checkbox" defaultChecked />
@@ -95,7 +95,7 @@ export default function SettingsPage() {
             </div>
           </div>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>Two-Factor Authentication</label>
+            <label className="form-label">Two-Factor Authentication</label>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
               <label style={{ position: 'relative', display: 'inline-block', width: 50, height: 24 }}>
                 <input type="checkbox" style={{ opacity: 0, width: 0, height: 0 }} />
@@ -107,81 +107,82 @@ export default function SettingsPage() {
             </div>
           </div>
           <div>
-            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8 }}>IP Whitelist</label>
+            <label className="form-label">IP Whitelist</label>
             <textarea 
               placeholder="Enter IP addresses (one per line)"
-              style={{ width: '100%', padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff', minHeight: 80 }}
+              className="form-input"
+              style={{ minHeight: 80 }}
             />
           </div>
         </div>
       </div>
 
       {/* User Management */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, marginBottom: 32, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>User Management</h3>
-        <table style={{ width: '100%' }}>
-          <thead style={{ background: '#f1f5f9' }}>
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <h3 className="section-title">User Management</h3>
+        <table className="events-table">
+          <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: 12 }}>User</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Role</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Status</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Last Login</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Actions</th>
+              <th>User</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Last Login</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-              <td style={{ padding: 12 }}>
+            <tr>
+              <td data-label="User">
                 <div>
                   <div style={{ fontWeight: 600 }}>admin@example.com</div>
                   <div style={{ color: '#64748b', fontSize: 12 }}>Administrator</div>
                 </div>
               </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#fef2f2', color: '#dc2626', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Admin</span>
+              <td data-label="Role">
+                <span className="status-error">Admin</span>
               </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Active</span>
+              <td data-label="Status">
+                <span className="status-success">Active</span>
               </td>
-              <td style={{ padding: 12 }}>2024-07-26 14:30:22</td>
-              <td style={{ padding: 12 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Edit</button>
+              <td data-label="Last Login">2024-07-26 14:30:22</td>
+              <td data-label="Actions">
+                <button className="table-action-btn">Edit</button>
               </td>
             </tr>
-            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-              <td style={{ padding: 12 }}>
+            <tr>
+              <td data-label="User">
                 <div>
                   <div style={{ fontWeight: 600 }}>user@example.com</div>
                   <div style={{ color: '#64748b', fontSize: 12 }}>Regular User</div>
                 </div>
               </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#f0f9ff', color: '#0284c7', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>User</span>
+              <td data-label="Role">
+                <span className="status-info">User</span>
               </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Active</span>
+              <td data-label="Status">
+                <span className="status-success">Active</span>
               </td>
-              <td style={{ padding: 12 }}>2024-07-26 13:45:10</td>
-              <td style={{ padding: 12 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Edit</button>
+              <td data-label="Last Login">2024-07-26 13:45:10</td>
+              <td data-label="Actions">
+                <button className="table-action-btn">Edit</button>
               </td>
             </tr>
             <tr>
-              <td style={{ padding: 12 }}>
+              <td data-label="User">
                 <div>
                   <div style={{ fontWeight: 600 }}>viewer@example.com</div>
                   <div style={{ color: '#64748b', fontSize: 12 }}>Read Only</div>
                 </div>
               </td>
-              <td style={{ padding: 12 }}>
+              <td data-label="Role">
                 <span style={{ background: '#f1f5f9', color: '#64748b', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Viewer</span>
               </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#fef9c3', color: '#ca8a04', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Inactive</span>
+              <td data-label="Status">
+                <span className="status-warning">Inactive</span>
               </td>
-              <td style={{ padding: 12 }}>2024-07-25 09:20:15</td>
-              <td style={{ padding: 12 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Edit</button>
+              <td data-label="Last Login">2024-07-25 09:20:15</td>
+              <td data-label="Actions">
+                <button className="table-action-btn">Edit</button>
               </td>
             </tr>
           </tbody>
@@ -189,30 +190,25 @@ export default function SettingsPage() {
       </div>
 
       {/* System Information */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>System Information</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 16 }}>
+      <div className="card">
+        <h3 className="section-title">System Information</h3>
+        <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
           <div>
-            <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Version</div>
+            <div className="metric-label">Version</div>
             <div style={{ fontWeight: 600 }}>1.2.3</div>
           </div>
           <div>
-            <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Build Date</div>
-            <div style={{ fontWeight: 600 }}>2024-07-15</div>
+            <div className="metric-label">Build Date</div>
+            <div style={{ fontWeight: 600 }}>2024-07-26</div>
           </div>
           <div>
-            <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Database</div>
+            <div className="metric-label">Environment</div>
+            <div style={{ fontWeight: 600 }}>Production</div>
+          </div>
+          <div>
+            <div className="metric-label">Database</div>
             <div style={{ fontWeight: 600 }}>PostgreSQL 14.5</div>
           </div>
-          <div>
-            <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Server</div>
-            <div style={{ fontWeight: 600 }}>Ubuntu 22.04 LTS</div>
-          </div>
-        </div>
-        <div style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid #e2e8f0' }}>
-          <button style={{ padding: '8px 16px', borderRadius: 6, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer' }}>
-            Check for Updates
-          </button>
         </div>
       </div>
     </section>

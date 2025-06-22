@@ -1,46 +1,46 @@
 export default function LogsPage() {
   return (
-    <section style={{ flex: 1, padding: '0 2rem' }}>
-      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>Logs</h1>
-      <div style={{ color: '#64748b', marginBottom: 32 }}>System logs and debugging information</div>
+    <section className="page-section">
+      <h1 className="page-title">Logs</h1>
+      <div className="page-subtitle">System logs and debugging information</div>
       
       {/* Log Statistics */}
-      <div style={{ display: 'flex', gap: 24, marginBottom: 32 }}>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Total Logs</div>
-          <div style={{ fontSize: 28, fontWeight: 700 }}>45,678</div>
+      <div className="card-grid">
+        <div className="card card-item">
+          <div className="metric-label">Total Logs</div>
+          <div className="metric-value">45,678</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Error Logs</div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#dc2626' }}>234</div>
+        <div className="card card-item">
+          <div className="metric-label">Error Logs</div>
+          <div className="metric-value text-error">234</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Warning Logs</div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#ca8a04' }}>1,567</div>
+        <div className="card card-item">
+          <div className="metric-label">Warning Logs</div>
+          <div className="metric-value" style={{ color: '#ca8a04' }}>1,567</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Log Size</div>
-          <div style={{ fontSize: 28, fontWeight: 700 }}>2.4 GB</div>
+        <div className="card card-item">
+          <div className="metric-label">Log Size</div>
+          <div className="metric-value">2.4 GB</div>
         </div>
       </div>
 
       {/* Log Search and Filters */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, marginBottom: 32, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>Search & Filters</h3>
-        <div style={{ display: 'flex', gap: 16, marginBottom: 16, flexWrap: 'wrap' }}>
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <h3 className="section-title">Search & Filters</h3>
+        <div className="form-controls">
           <input 
             type="text" 
             placeholder="Search logs..."
-            style={{ flex: 1, minWidth: 200, padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}
+            style={{ flex: 1, minWidth: 200 }}
           />
-          <select style={{ padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}>
+          <select>
             <option>All Levels</option>
             <option>Error</option>
             <option>Warning</option>
             <option>Info</option>
             <option>Debug</option>
           </select>
-          <select style={{ padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}>
+          <select>
             <option>All Services</option>
             <option>Web Server</option>
             <option>Database</option>
@@ -49,28 +49,25 @@ export default function LogsPage() {
           </select>
           <input 
             type="date" 
-            style={{ padding: '8px 12px', borderRadius: 6, border: '1px solid #d1d5db', background: '#fff' }}
             defaultValue="2024-07-26"
           />
-          <button style={{ padding: '8px 16px', borderRadius: 6, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer' }}>
-            Search
-          </button>
+          <button>Search</button>
         </div>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          <button style={{ padding: '4px 12px', borderRadius: 6, background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', cursor: 'pointer', fontSize: 12 }}>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
+          <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>
             Export Logs
           </button>
-          <button style={{ padding: '4px 12px', borderRadius: 6, background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', cursor: 'pointer', fontSize: 12 }}>
+          <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>
             Clear Old Logs
           </button>
-          <button style={{ padding: '4px 12px', borderRadius: 6, background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', cursor: 'pointer', fontSize: 12 }}>
+          <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>
             Download
           </button>
         </div>
       </div>
 
       {/* Log Entries */}
-      <div style={{ background: '#fff', borderRadius: 12, boxShadow: '0 1px 3px #0001', overflow: 'hidden' }}>
+      <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
         <div style={{ padding: 16, borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontWeight: 600 }}>Recent Log Entries</span>
@@ -80,7 +77,7 @@ export default function LogsPage() {
         <div style={{ maxHeight: 600, overflowY: 'auto' }}>
           <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9', background: '#fef2f2' }}>
             <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span style={{ background: '#dc2626', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>ERROR</span>
+              <span className="log-level-error">ERROR</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                   <span style={{ fontWeight: 600 }}>Database connection failed</span>
@@ -96,7 +93,7 @@ export default function LogsPage() {
           
           <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9', background: '#fef9c3' }}>
             <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span style={{ background: '#ca8a04', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>WARN</span>
+              <span className="log-level-warning">WARN</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                   <span style={{ fontWeight: 600 }}>High memory usage detected</span>
@@ -112,7 +109,7 @@ export default function LogsPage() {
           
           <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9' }}>
             <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span style={{ background: '#0284c7', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>INFO</span>
+              <span className="log-level-info">INFO</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                   <span style={{ fontWeight: 600 }}>User authentication successful</span>
@@ -128,7 +125,7 @@ export default function LogsPage() {
           
           <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9' }}>
             <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span style={{ background: '#16a34a', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>DEBUG</span>
+              <span className="log-level-debug">DEBUG</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                   <span style={{ fontWeight: 600 }}>API request processed</span>
@@ -144,7 +141,7 @@ export default function LogsPage() {
           
           <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9' }}>
             <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span style={{ background: '#0284c7', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>INFO</span>
+              <span className="log-level-info">INFO</span>
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                   <span style={{ fontWeight: 600 }}>Backup completed successfully</span>

@@ -454,6 +454,17 @@ th, td {
   color: #1e293b;
 }
 
+.sidebar-nav-link.active {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar-nav-link.active:hover {
+  background: #1d4ed8;
+  color: #fff;
+}
+
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .layout-container {
@@ -611,4 +622,41 @@ th, td {
 
 .table-action-btn:hover {
   background: #1d4ed8;
+}
+
+/* Log level badges */
+.log-level-error {
+  background: #dc2626;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.log-level-warning {
+  background: #ca8a04;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.log-level-info {
+  background: #0284c7;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.log-level-debug {
+  background: #16a34a;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
 }

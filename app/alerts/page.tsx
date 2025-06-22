@@ -1,64 +1,64 @@
 export default function AlertsPage() {
   return (
-    <section style={{ flex: 1, padding: '0 2rem' }}>
-      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>Alerts</h1>
-      <div style={{ color: '#64748b', marginBottom: 32 }}>System alerts and notification management</div>
+    <section className="page-section">
+      <h1 className="page-title">Alerts</h1>
+      <div className="page-subtitle">System alerts and notification management</div>
       
       {/* Alert Statistics */}
-      <div style={{ display: 'flex', gap: 24, marginBottom: 32 }}>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Active Alerts</div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#dc2626' }}>7</div>
+      <div className="card-grid">
+        <div className="card card-item">
+          <div className="metric-label">Active Alerts</div>
+          <div className="metric-value text-error">7</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Critical Alerts</div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#dc2626' }}>3</div>
+        <div className="card card-item">
+          <div className="metric-label">Critical Alerts</div>
+          <div className="metric-value text-error">3</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Resolved Today</div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: '#16a34a' }}>12</div>
+        <div className="card card-item">
+          <div className="metric-label">Resolved Today</div>
+          <div className="metric-value text-success">12</div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, padding: 24, flex: 1, boxShadow: '0 1px 3px #0001' }}>
-          <div style={{ color: '#64748b', marginBottom: 8 }}>Alert Rules</div>
-          <div style={{ fontSize: 28, fontWeight: 700 }}>24</div>
+        <div className="card card-item">
+          <div className="metric-label">Alert Rules</div>
+          <div className="metric-value">24</div>
         </div>
       </div>
 
       {/* Quick Actions */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, marginBottom: 32, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>Quick Actions</h3>
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <h3 className="section-title">Quick Actions</h3>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-          <button style={{ padding: '8px 16px', borderRadius: 6, background: '#dc2626', color: '#fff', border: 'none', cursor: 'pointer' }}>
+          <button className="table-action-btn" style={{ background: '#dc2626', padding: '8px 16px' }}>
             Acknowledge All
           </button>
-          <button style={{ padding: '8px 16px', borderRadius: 6, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer' }}>
+          <button className="table-action-btn" style={{ background: '#2563eb', padding: '8px 16px' }}>
             Create Alert Rule
           </button>
-          <button style={{ padding: '8px 16px', borderRadius: 6, background: '#16a34a', color: '#fff', border: 'none', cursor: 'pointer' }}>
+          <button className="table-action-btn" style={{ background: '#16a34a', padding: '8px 16px' }}>
             Test Notification
           </button>
-          <button style={{ padding: '8px 16px', borderRadius: 6, background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', cursor: 'pointer' }}>
+          <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', padding: '8px 16px' }}>
             Export Alerts
           </button>
         </div>
       </div>
 
       {/* Active Alerts */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, marginBottom: 32, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>Active Alerts</h3>
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <h3 className="section-title">Active Alerts</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div style={{ border: '1px solid #fecaca', borderRadius: 8, padding: 16, background: '#fef2f2' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                  <span style={{ background: '#dc2626', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>CRITICAL</span>
+                  <span className="log-level-error">CRITICAL</span>
                   <span style={{ fontWeight: 600 }}>Database Connection Failed</span>
                 </div>
                 <div style={{ color: '#64748b', fontSize: 14 }}>Database server is not responding</div>
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Acknowledge</button>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', cursor: 'pointer', fontSize: 12 }}>View</button>
+                <button className="table-action-btn">Acknowledge</button>
+                <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>View</button>
               </div>
             </div>
             <div style={{ fontSize: 12, color: '#64748b' }}>Triggered: 2024-07-26 14:30:22 | Duration: 15m 30s</div>
@@ -68,14 +68,14 @@ export default function AlertsPage() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                  <span style={{ background: '#ca8a04', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>WARNING</span>
+                  <span className="log-level-warning">WARNING</span>
                   <span style={{ fontWeight: 600 }}>High Memory Usage</span>
                 </div>
                 <div style={{ color: '#64748b', fontSize: 14 }}>Memory usage exceeds 85% threshold</div>
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Acknowledge</button>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', cursor: 'pointer', fontSize: 12 }}>View</button>
+                <button className="table-action-btn">Acknowledge</button>
+                <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>View</button>
               </div>
             </div>
             <div style={{ fontSize: 12, color: '#64748b' }}>Triggered: 2024-07-26 14:25:15 | Duration: 10m 45s</div>
@@ -85,14 +85,14 @@ export default function AlertsPage() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                  <span style={{ background: '#dc2626', color: '#fff', padding: '2px 6px', borderRadius: 4, fontSize: 11, fontWeight: 600 }}>CRITICAL</span>
+                  <span className="log-level-error">CRITICAL</span>
                   <span style={{ fontWeight: 600 }}>Security Breach Detected</span>
                 </div>
                 <div style={{ color: '#64748b', fontSize: 14 }}>Multiple failed login attempts detected</div>
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Acknowledge</button>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db', cursor: 'pointer', fontSize: 12 }}>View</button>
+                <button className="table-action-btn">Acknowledge</button>
+                <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>View</button>
               </div>
             </div>
             <div style={{ fontSize: 12, color: '#64748b' }}>Triggered: 2024-07-26 14:20:08 | Duration: 5m 22s</div>
@@ -101,69 +101,69 @@ export default function AlertsPage() {
       </div>
 
       {/* Alert Rules */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, marginBottom: 32, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>Alert Rules</h3>
-        <table style={{ width: '100%' }}>
-          <thead style={{ background: '#f1f5f9' }}>
+      <div className="card" style={{ marginBottom: '24px' }}>
+        <h3 className="section-title">Alert Rules</h3>
+        <table className="events-table">
+          <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: 12 }}>Rule Name</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Condition</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Severity</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Status</th>
-              <th style={{ textAlign: 'left', padding: 12 }}>Actions</th>
+              <th>Rule Name</th>
+              <th>Condition</th>
+              <th>Severity</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-              <td style={{ padding: 12 }}>High CPU Usage</td>
-              <td style={{ padding: 12 }}>CPU &gt; 80% for 5 minutes</td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#fef9c3', color: '#ca8a04', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Warning</span>
+            <tr>
+              <td data-label="Rule Name">High CPU Usage</td>
+              <td data-label="Condition">CPU &gt; 80% for 5 minutes</td>
+              <td data-label="Severity">
+                <span className="status-warning">Warning</span>
               </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Active</span>
+              <td data-label="Status">
+                <span className="status-success">Active</span>
               </td>
-              <td style={{ padding: 12 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Edit</button>
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-              <td style={{ padding: 12 }}>Database Connection</td>
-              <td style={{ padding: 12 }}>DB connection failed</td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#fef2f2', color: '#dc2626', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Critical</span>
-              </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Active</span>
-              </td>
-              <td style={{ padding: 12 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Edit</button>
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-              <td style={{ padding: 12 }}>Memory Usage</td>
-              <td style={{ padding: 12 }}>Memory &gt; 85% for 3 minutes</td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#fef9c3', color: '#ca8a04', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Warning</span>
-              </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Active</span>
-              </td>
-              <td style={{ padding: 12 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Edit</button>
+              <td data-label="Actions">
+                <button className="table-action-btn">Edit</button>
               </td>
             </tr>
             <tr>
-              <td style={{ padding: 12 }}>Security Alerts</td>
-              <td style={{ padding: 12 }}>Failed login &gt; 5 attempts</td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#fef2f2', color: '#dc2626', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Critical</span>
+              <td data-label="Rule Name">Database Connection</td>
+              <td data-label="Condition">DB connection failed</td>
+              <td data-label="Severity">
+                <span className="status-error">Critical</span>
               </td>
-              <td style={{ padding: 12 }}>
-                <span style={{ background: '#dcfce7', color: '#16a34a', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Active</span>
+              <td data-label="Status">
+                <span className="status-success">Active</span>
               </td>
-              <td style={{ padding: 12 }}>
-                <button style={{ padding: '4px 8px', borderRadius: 4, background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', fontSize: 12 }}>Edit</button>
+              <td data-label="Actions">
+                <button className="table-action-btn">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Rule Name">Memory Usage</td>
+              <td data-label="Condition">Memory &gt; 85% for 3 minutes</td>
+              <td data-label="Severity">
+                <span className="status-warning">Warning</span>
+              </td>
+              <td data-label="Status">
+                <span className="status-success">Active</span>
+              </td>
+              <td data-label="Actions">
+                <button className="table-action-btn">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Rule Name">Security Alerts</td>
+              <td data-label="Condition">Failed login &gt; 5 attempts</td>
+              <td data-label="Severity">
+                <span className="status-error">Critical</span>
+              </td>
+              <td data-label="Status">
+                <span className="status-success">Active</span>
+              </td>
+              <td data-label="Actions">
+                <button className="table-action-btn">Edit</button>
               </td>
             </tr>
           </tbody>
@@ -171,8 +171,8 @@ export default function AlertsPage() {
       </div>
 
       {/* Notification Settings */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 3px #0001' }}>
-        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>Notification Settings</h3>
+      <div className="card">
+        <h3 className="section-title">Notification Settings</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #f1f5f9' }}>
             <div>
@@ -200,7 +200,7 @@ export default function AlertsPage() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0' }}>
             <div>
-              <div style={{ fontWeight: 600 }}>Slack Integration</div>
+              <div style={{ fontWeight: 600 }}>Slack Notifications</div>
               <div style={{ color: '#64748b', fontSize: 14 }}>Send alerts to Slack channel</div>
             </div>
             <label style={{ position: 'relative', display: 'inline-block', width: 50, height: 24 }}>

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "../../lib/authContext";
 
 const navItems = [
@@ -19,6 +19,7 @@ interface SidebarProps {
 
 const Sidebar = React.memo(function Sidebar({ onClose }: SidebarProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const { signOut } = useAuth();
   
   const handleLogout = React.useCallback(async () => {
@@ -33,23 +34,33 @@ const Sidebar = React.memo(function Sidebar({ onClose }: SidebarProps) {
     }
   };
   
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
+  
   return (
     <aside className="sidebar">
       <div className="sidebar-content">
         <div className="sidebar-title">Admin Panel</div>
         <nav>
           <ul className="sidebar-nav">
-            {navItems.map((item) => (
-              <li key={item.label} className="sidebar-nav-item">
-                <Link 
-                  href={item.href}
-                  className="sidebar-nav-link"
-                  onClick={handleNavClick}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <li key={item.label} className="sidebar-nav-item">
+                  <Link 
+                    href={item.href}
+                    className={`sidebar-nav-link ${active ? 'active' : ''}`}
+                    onClick={handleNavClick}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
