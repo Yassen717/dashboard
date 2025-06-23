@@ -26,11 +26,11 @@ const ClientLayout = React.memo(function ClientLayout({
   };
   
   return (
-    <div className="layout-container">
+    <div className="flex w-full relative">
       {showSidebar && (
         <>
           <button 
-            className="mobile-nav-toggle"
+            className="hidden fixed top-4 left-4 z-[1000] bg-blue-600 text-white border-none rounded-md p-2 cursor-pointer shadow-md md:hidden"
             onClick={toggleSidebar}
             aria-label="Toggle navigation"
           >
@@ -39,16 +39,16 @@ const ClientLayout = React.memo(function ClientLayout({
             </svg>
           </button>
           <div 
-            className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`}
+            className={`hidden fixed top-0 left-0 w-full h-full bg-black/50 z-[998] md:hidden ${sidebarOpen ? '!block' : ''}`}
             onClick={closeSidebar}
           />
-          <div className={`sidebar-wrapper ${sidebarOpen ? 'open' : ''}`}>
+          <div className={`flex flex-shrink-0 fixed top-0 left-0 h-full z-[999] -translate-x-full transition-transform duration-300 md:static md:translate-x-0 ${sidebarOpen ? '!translate-x-0' : ''}`}>
             <Sidebar onClose={closeSidebar} />
           </div>
         </>
       )}
-      <div className="main-content">
-        <main className="main-area">{children}</main>
+      <div className="flex-1 flex flex-col min-w-0">
+        <main className="flex-1 flex flex-col min-w-0 p-4 md:p-8 lg:p-12">{children}</main>
       </div>
     </div>
   );
