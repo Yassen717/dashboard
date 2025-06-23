@@ -1,46 +1,46 @@
 export default function LogsPage() {
   return (
-    <section className="page-section">
-      <h1 className="page-title">Logs</h1>
-      <div className="page-subtitle">System logs and debugging information</div>
+    <section className="flex-1 px-4 md:px-8 lg:px-12">
+      <h1 className="text-[clamp(24px,5vw,32px)] font-bold mb-2">Logs</h1>
+      <div className="text-slate-500 mb-6 text-[clamp(14px,3vw,16px)]">System logs and debugging information</div>
       
       {/* Log Statistics */}
-      <div className="card-grid">
-        <div className="card card-item">
-          <div className="metric-label">Total Logs</div>
-          <div className="metric-value">45,678</div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[clamp(16px,4vw,24px)] mb-6">
+        <div className="bg-white rounded-xl p-[clamp(16px,4vw,24px)] shadow-sm min-w-0">
+          <div className="text-slate-500 mb-2 text-[clamp(12px,3vw,14px)]">Total Logs</div>
+          <div className="text-[clamp(20px,5vw,28px)] font-bold">45,678</div>
         </div>
-        <div className="card card-item">
-          <div className="metric-label">Error Logs</div>
-          <div className="metric-value text-error">234</div>
+        <div className="bg-white rounded-xl p-[clamp(16px,4vw,24px)] shadow-sm min-w-0">
+          <div className="text-slate-500 mb-2 text-[clamp(12px,3vw,14px)]">Error Logs</div>
+          <div className="text-[clamp(20px,5vw,28px)] font-bold text-red-600">234</div>
         </div>
-        <div className="card card-item">
-          <div className="metric-label">Warning Logs</div>
-          <div className="metric-value" style={{ color: '#ca8a04' }}>1,567</div>
+        <div className="bg-white rounded-xl p-[clamp(16px,4vw,24px)] shadow-sm min-w-0">
+          <div className="text-slate-500 mb-2 text-[clamp(12px,3vw,14px)]">Warning Logs</div>
+          <div className="text-[clamp(20px,5vw,28px)] font-bold text-yellow-700">1,567</div>
         </div>
-        <div className="card card-item">
-          <div className="metric-label">Log Size</div>
-          <div className="metric-value">2.4 GB</div>
+        <div className="bg-white rounded-xl p-[clamp(16px,4vw,24px)] shadow-sm min-w-0">
+          <div className="text-slate-500 mb-2 text-[clamp(12px,3vw,14px)]">Log Size</div>
+          <div className="text-[clamp(20px,5vw,28px)] font-bold">2.4 GB</div>
         </div>
       </div>
 
       {/* Log Search and Filters */}
-      <div className="card" style={{ marginBottom: '24px' }}>
-        <h3 className="section-title">Search & Filters</h3>
-        <div className="form-controls">
+      <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+        <h3 className="text-[clamp(18px,4vw,20px)] font-semibold mb-4">Search & Filters</h3>
+        <div className="flex gap-4 flex-wrap mb-4">
           <input 
             type="text" 
             placeholder="Search logs..."
-            style={{ flex: 1, minWidth: 200 }}
+            className="flex-1 min-w-[200px] px-3 py-2 rounded-md border border-slate-300 bg-white text-sm"
           />
-          <select>
+          <select className="px-3 py-2 rounded-md border border-slate-300 bg-white text-sm min-w-[120px]">
             <option>All Levels</option>
             <option>Error</option>
             <option>Warning</option>
             <option>Info</option>
             <option>Debug</option>
           </select>
-          <select>
+          <select className="px-3 py-2 rounded-md border border-slate-300 bg-white text-sm min-w-[120px]">
             <option>All Services</option>
             <option>Web Server</option>
             <option>Database</option>
@@ -50,107 +50,90 @@ export default function LogsPage() {
           <input 
             type="date" 
             defaultValue="2024-07-26"
+            className="px-3 py-2 rounded-md border border-slate-300 bg-white text-sm min-w-[120px]"
           />
-          <button>Search</button>
+          <button className="px-4 py-2 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors">Search</button>
         </div>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
-          <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>
-            Export Logs
-          </button>
-          <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>
-            Clear Old Logs
-          </button>
-          <button className="table-action-btn" style={{ background: '#f1f5f9', color: '#64748b', border: '1px solid #d1d5db' }}>
-            Download
-          </button>
+        <div className="flex gap-2 flex-wrap mt-4">
+          <button className="px-4 py-2 rounded-md bg-slate-100 text-slate-500 border border-slate-300 font-semibold hover:bg-slate-200 transition-colors">Export Logs</button>
+          <button className="px-4 py-2 rounded-md bg-slate-100 text-slate-500 border border-slate-300 font-semibold hover:bg-slate-200 transition-colors">Clear Old Logs</button>
+          <button className="px-4 py-2 rounded-md bg-slate-100 text-slate-500 border border-slate-300 font-semibold hover:bg-slate-200 transition-colors">Download</button>
         </div>
       </div>
 
       {/* Log Entries */}
-      <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-        <div style={{ padding: 16, borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontWeight: 600 }}>Recent Log Entries</span>
-            <span style={{ color: '#64748b', fontSize: 14 }}>Showing 50 of 45,678 entries</span>
-          </div>
+      <div className="bg-white rounded-xl shadow-sm overflow-hidden p-0">
+        <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
+          <span className="font-semibold">Recent Log Entries</span>
+          <span className="text-slate-500 text-sm">Showing 50 of 45,678 entries</span>
         </div>
-        <div style={{ maxHeight: 600, overflowY: 'auto' }}>
-          <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9', background: '#fef2f2' }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span className="log-level-error">ERROR</span>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontWeight: 600 }}>Database connection failed</span>
-                  <span style={{ color: '#64748b', fontSize: 12 }}>2024-07-26 14:30:22</span>
+        <div className="max-h-[600px] overflow-y-auto">
+          <div className="p-3 border-b border-slate-100 bg-red-50">
+            <div className="flex gap-3 items-start">
+              <span className="bg-red-100 text-red-600 rounded-md px-2 py-0.5 text-xs font-semibold">ERROR</span>
+              <div className="flex-1">
+                <div className="flex justify-between mb-1">
+                  <span className="font-semibold">Database connection failed</span>
+                  <span className="text-slate-500 text-xs">2024-07-26 14:30:22</span>
                 </div>
-                <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Service: Database | Source: db-server-01</div>
-                <div style={{ fontSize: 13, fontFamily: 'monospace', background: '#f1f5f9', padding: 8, borderRadius: 4 }}>
-                  Connection timeout after 30 seconds. Retrying connection to mysql://localhost:3306
-                </div>
+                <div className="text-slate-500 text-sm mb-1">Service: Database | Source: db-server-01</div>
+                <div className="text-xs font-mono bg-slate-100 p-2 rounded">Connection timeout after 30 seconds. Retrying connection to mysql://localhost:3306</div>
               </div>
             </div>
           </div>
           
-          <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9', background: '#fef9c3' }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span className="log-level-warning">WARN</span>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontWeight: 600 }}>High memory usage detected</span>
-                  <span style={{ color: '#64748b', fontSize: 12 }}>2024-07-26 14:29:15</span>
+          <div className="p-3 border-b border-slate-100 bg-yellow-50">
+            <div className="flex gap-3 items-start">
+              <span className="bg-yellow-100 text-yellow-700 rounded-md px-2 py-0.5 text-xs font-semibold">WARN</span>
+              <div className="flex-1">
+                <div className="flex justify-between mb-1">
+                  <span className="font-semibold">High memory usage detected</span>
+                  <span className="text-slate-500 text-xs">2024-07-26 14:29:15</span>
                 </div>
-                <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Service: System | Source: monitoring-agent</div>
-                <div style={{ fontSize: 13, fontFamily: 'monospace', background: '#f1f5f9', padding: 8, borderRadius: 4 }}>
-                  Memory usage: 89% (14.2GB/16GB). Consider optimizing application memory usage.
-                </div>
+                <div className="text-slate-500 text-sm mb-1">Service: System | Source: monitoring-agent</div>
+                <div className="text-xs font-mono bg-slate-100 p-2 rounded">Memory usage: 89% (14.2GB/16GB). Consider optimizing application memory usage.</div>
               </div>
             </div>
           </div>
           
-          <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9' }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span className="log-level-info">INFO</span>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontWeight: 600 }}>User authentication successful</span>
-                  <span style={{ color: '#64748b', fontSize: 12 }}>2024-07-26 14:28:45</span>
+          <div className="p-3 border-b border-slate-100">
+            <div className="flex gap-3 items-start">
+              <span className="bg-blue-100 text-blue-600 rounded-md px-2 py-0.5 text-xs font-semibold">INFO</span>
+              <div className="flex-1">
+                <div className="flex justify-between mb-1">
+                  <span className="font-semibold">User authentication successful</span>
+                  <span className="text-slate-500 text-xs">2024-07-26 14:28:45</span>
                 </div>
-                <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Service: Auth | Source: auth-service</div>
-                <div style={{ fontSize: 13, fontFamily: 'monospace', background: '#f1f5f9', padding: 8, borderRadius: 4 }}>
-                  User ID: 12345 | IP: 192.168.1.100 | Session: abc123def456
-                </div>
+                <div className="text-slate-500 text-sm mb-1">Service: Auth | Source: auth-service</div>
+                <div className="text-xs font-mono bg-slate-100 p-2 rounded">User ID: 12345 | IP: 192.168.1.100 | Session: abc123def456</div>
               </div>
             </div>
           </div>
           
-          <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9' }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span className="log-level-debug">DEBUG</span>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontWeight: 600 }}>API request processed</span>
-                  <span style={{ color: '#64748b', fontSize: 12 }}>2024-07-26 14:28:30</span>
+          <div className="p-3 border-b border-slate-100">
+            <div className="flex gap-3 items-start">
+              <span className="bg-slate-200 text-slate-700 rounded-md px-2 py-0.5 text-xs font-semibold">DEBUG</span>
+              <div className="flex-1">
+                <div className="flex justify-between mb-1">
+                  <span className="font-semibold">API request processed</span>
+                  <span className="text-slate-500 text-xs">2024-07-26 14:28:30</span>
                 </div>
-                <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Service: API | Source: api-gateway</div>
-                <div style={{ fontSize: 13, fontFamily: 'monospace', background: '#f1f5f9', padding: 8, borderRadius: 4 }}>
-                  GET /api/users/12345 | Response: 200 | Duration: 45ms
-                </div>
+                <div className="text-slate-500 text-sm mb-1">Service: API | Source: api-gateway</div>
+                <div className="text-xs font-mono bg-slate-100 p-2 rounded">GET /api/users/12345 | Response: 200 | Duration: 45ms</div>
               </div>
             </div>
           </div>
           
-          <div style={{ padding: 12, borderBottom: '1px solid #f1f5f9' }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <span className="log-level-info">INFO</span>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontWeight: 600 }}>Backup completed successfully</span>
-                  <span style={{ color: '#64748b', fontSize: 12 }}>2024-07-26 14:27:15</span>
+          <div className="p-3 border-b border-slate-100">
+            <div className="flex gap-3 items-start">
+              <span className="bg-blue-100 text-blue-600 rounded-md px-2 py-0.5 text-xs font-semibold">INFO</span>
+              <div className="flex-1">
+                <div className="flex justify-between mb-1">
+                  <span className="font-semibold">Backup completed successfully</span>
+                  <span className="text-slate-500 text-xs">2024-07-26 14:27:15</span>
                 </div>
-                <div style={{ color: '#64748b', fontSize: 14, marginBottom: 4 }}>Service: Backup | Source: backup-service</div>
-                <div style={{ fontSize: 13, fontFamily: 'monospace', background: '#f1f5f9', padding: 8, borderRadius: 4 }}>
-                  Database backup completed. Size: 2.4GB | Duration: 15m 30s
-                </div>
+                <div className="text-slate-500 text-sm mb-1">Service: Backup | Source: backup-service</div>
+                <div className="text-xs font-mono bg-slate-100 p-2 rounded">Database backup completed. Size: 2.4GB | Duration: 15m 30s</div>
               </div>
             </div>
           </div>
