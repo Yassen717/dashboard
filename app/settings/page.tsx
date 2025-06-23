@@ -1,40 +1,40 @@
 export default function SettingsPage() {
   return (
-    <section className="page-section">
-      <h1 className="page-title">Settings</h1>
-      <div className="page-subtitle">System configuration and user preferences</div>
+    <section className="flex-1 px-4 md:px-8 lg:px-12">
+      <h1 className="text-[clamp(24px,5vw,32px)] font-bold mb-2">Settings</h1>
+      <div className="text-slate-500 mb-6 text-[clamp(14px,3vw,16px)]">System configuration and user preferences</div>
       
       {/* Settings Navigation */}
-      <div className="card-grid">
-        <div className="card card-item">
-          <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>General</div>
-          <div style={{ color: '#64748b', fontSize: 14 }}>Basic system settings</div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[clamp(16px,4vw,24px)] mb-6">
+        <div className="bg-white rounded-xl p-[clamp(16px,4vw,24px)] shadow-sm min-w-0">
+          <div className="text-[20px] font-semibold mb-2">General</div>
+          <div className="text-slate-500 text-sm">Basic system settings</div>
         </div>
-        <div className="card card-item">
-          <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>Security</div>
-          <div style={{ color: '#64748b', fontSize: 14 }}>Security and access control</div>
+        <div className="bg-white rounded-xl p-[clamp(16px,4vw,24px)] shadow-sm min-w-0">
+          <div className="text-[20px] font-semibold mb-2">Security</div>
+          <div className="text-slate-500 text-sm">Security and access control</div>
         </div>
-        <div className="card card-item">
-          <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>Notifications</div>
-          <div style={{ color: '#64748b', fontSize: 14 }}>Alert and notification settings</div>
+        <div className="bg-white rounded-xl p-[clamp(16px,4vw,24px)] shadow-sm min-w-0">
+          <div className="text-[20px] font-semibold mb-2">Notifications</div>
+          <div className="text-slate-500 text-sm">Alert and notification settings</div>
         </div>
       </div>
 
       {/* General Settings */}
-      <div className="card" style={{ marginBottom: '24px' }}>
-        <h3 className="section-title">General Settings</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+        <h3 className="text-[clamp(18px,4vw,20px)] font-semibold mb-4">General Settings</h3>
+        <div className="flex flex-col gap-5">
           <div>
-            <label className="form-label">System Name</label>
+            <label className="block font-semibold mb-2">System Name</label>
             <input 
               type="text" 
               defaultValue="Admin Dashboard"
-              className="form-input"
+              className="w-full px-3 py-2 rounded-md border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             />
           </div>
           <div>
-            <label className="form-label">Time Zone</label>
-            <select className="form-input">
+            <label className="block font-semibold mb-2">Time Zone</label>
+            <select className="w-full px-3 py-2 rounded-md border border-slate-300 bg-white text-sm">
               <option>UTC (Coordinated Universal Time)</option>
               <option>EST (Eastern Standard Time)</option>
               <option>PST (Pacific Standard Time)</option>
@@ -42,16 +42,16 @@ export default function SettingsPage() {
             </select>
           </div>
           <div>
-            <label className="form-label">Date Format</label>
-            <select className="form-input">
+            <label className="block font-semibold mb-2">Date Format</label>
+            <select className="w-full px-3 py-2 rounded-md border border-slate-300 bg-white text-sm">
               <option>MM/DD/YYYY</option>
               <option>DD/MM/YYYY</option>
               <option>YYYY-MM-DD</option>
             </select>
           </div>
           <div>
-            <label className="form-label">Language</label>
-            <select className="form-input">
+            <label className="block font-semibold mb-2">Language</label>
+            <select className="w-full px-3 py-2 rounded-md border border-slate-300 bg-white text-sm">
               <option>English</option>
               <option>Spanish</option>
               <option>French</option>
@@ -62,152 +62,149 @@ export default function SettingsPage() {
       </div>
 
       {/* Security Settings */}
-      <div className="card" style={{ marginBottom: '24px' }}>
-        <h3 className="section-title">Security Settings</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+        <h3 className="text-[clamp(18px,4vw,20px)] font-semibold mb-4">Security Settings</h3>
+        <div className="flex flex-col gap-5">
           <div>
-            <label className="form-label">Session Timeout (minutes)</label>
+            <label className="block font-semibold mb-2">Session Timeout (minutes)</label>
             <input 
               type="number" 
               defaultValue="30"
-              className="form-input"
+              className="w-full px-3 py-2 rounded-md border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             />
           </div>
           <div>
-            <label className="form-label">Password Policy</label>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <label className="block font-semibold mb-2">Password Policy</label>
+            <div className="flex flex-col gap-2">
+              <label className="flex items-center gap-2">
                 <input type="checkbox" defaultChecked />
                 <span>Require uppercase letters</span>
               </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <label className="flex items-center gap-2">
                 <input type="checkbox" defaultChecked />
                 <span>Require numbers</span>
               </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <label className="flex items-center gap-2">
                 <input type="checkbox" defaultChecked />
                 <span>Require special characters</span>
               </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <label className="flex items-center gap-2">
                 <input type="checkbox" />
                 <span>Require password change every 90 days</span>
               </label>
             </div>
           </div>
           <div>
-            <label className="form-label">Two-Factor Authentication</label>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              <label style={{ position: 'relative', display: 'inline-block', width: 50, height: 24 }}>
-                <input type="checkbox" style={{ opacity: 0, width: 0, height: 0 }} />
-                <span style={{ position: 'absolute', cursor: 'pointer', top: 0, left: 0, right: 0, bottom: 0, background: '#d1d5db', borderRadius: 24, transition: '0.4s' }}>
-                  <span style={{ position: 'absolute', content: '', height: 18, width: 18, left: 3, bottom: 3, background: '#fff', borderRadius: '50%', transition: '0.4s' }}></span>
+            <label className="block font-semibold mb-2">Two-Factor Authentication</label>
+            <div className="flex items-center gap-4">
+              <label className="relative inline-block w-[50px] h-6">
+                <input type="checkbox" className="opacity-0 w-0 h-0" />
+                <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-slate-300 rounded-full transition duration-300">
+                  <span className="absolute h-[18px] w-[18px] left-[3px] bottom-[3px] bg-white rounded-full transition duration-300" />
                 </span>
               </label>
-              <span style={{ color: '#64748b' }}>Enable 2FA for all users</span>
+              <span className="text-slate-500">Enable 2FA for all users</span>
             </div>
           </div>
           <div>
-            <label className="form-label">IP Whitelist</label>
+            <label className="block font-semibold mb-2">IP Whitelist</label>
             <textarea 
               placeholder="Enter IP addresses (one per line)"
-              className="form-input"
-              style={{ minHeight: 80 }}
+              className="w-full px-3 py-2 rounded-md border border-slate-300 bg-slate-50 text-sm min-h-[80px]"
             />
           </div>
         </div>
       </div>
 
       {/* User Management */}
-      <div className="card" style={{ marginBottom: '24px' }}>
-        <h3 className="section-title">User Management</h3>
-        <table className="events-table">
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Role</th>
-              <th>Status</th>
-              <th>Last Login</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="User">
-                <div>
-                  <div style={{ fontWeight: 600 }}>admin@example.com</div>
-                  <div style={{ color: '#64748b', fontSize: 12 }}>Administrator</div>
-                </div>
-              </td>
-              <td data-label="Role">
-                <span className="status-error">Admin</span>
-              </td>
-              <td data-label="Status">
-                <span className="status-success">Active</span>
-              </td>
-              <td data-label="Last Login">2024-07-26 14:30:22</td>
-              <td data-label="Actions">
-                <button className="table-action-btn">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="User">
-                <div>
-                  <div style={{ fontWeight: 600 }}>user@example.com</div>
-                  <div style={{ color: '#64748b', fontSize: 12 }}>Regular User</div>
-                </div>
-              </td>
-              <td data-label="Role">
-                <span className="status-info">User</span>
-              </td>
-              <td data-label="Status">
-                <span className="status-success">Active</span>
-              </td>
-              <td data-label="Last Login">2024-07-26 13:45:10</td>
-              <td data-label="Actions">
-                <button className="table-action-btn">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="User">
-                <div>
-                  <div style={{ fontWeight: 600 }}>viewer@example.com</div>
-                  <div style={{ color: '#64748b', fontSize: 12 }}>Read Only</div>
-                </div>
-              </td>
-              <td data-label="Role">
-                <span style={{ background: '#f1f5f9', color: '#64748b', borderRadius: 6, padding: '2px 8px', fontSize: 12 }}>Viewer</span>
-              </td>
-              <td data-label="Status">
-                <span className="status-warning">Inactive</span>
-              </td>
-              <td data-label="Last Login">2024-07-25 09:20:15</td>
-              <td data-label="Actions">
-                <button className="table-action-btn">Edit</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+        <h3 className="text-[clamp(18px,4vw,20px)] font-semibold mb-4">User Management</h3>
+        <div className="overflow-x-auto">
+          <table className="w-full bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead className="bg-slate-100">
+              <tr>
+                <th className="text-left px-3 py-2 text-[clamp(12px,3vw,15px)]">User</th>
+                <th className="text-left px-3 py-2 text-[clamp(12px,3vw,15px)]">Role</th>
+                <th className="text-left px-3 py-2 text-[clamp(12px,3vw,15px)]">Status</th>
+                <th className="text-left px-3 py-2 text-[clamp(12px,3vw,15px)]">Last Login</th>
+                <th className="text-left px-3 py-2 text-[clamp(12px,3vw,15px)]">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-2" data-label="User">
+                  <div>
+                    <div className="font-semibold">admin@example.com</div>
+                    <div className="text-slate-500 text-xs">Administrator</div>
+                  </div>
+                </td>
+                <td className="px-3 py-2" data-label="Role">
+                  <span className="bg-red-100 text-red-600 rounded-md px-2 py-0.5 text-xs">Admin</span>
+                </td>
+                <td className="px-3 py-2" data-label="Status">
+                  <span className="bg-green-100 text-green-600 rounded-md px-2 py-0.5 text-xs">Active</span>
+                </td>
+                <td className="px-3 py-2" data-label="Last Login">2024-07-26 14:30:22</td>
+                <td className="px-3 py-2" data-label="Actions">
+                  <button className="px-3 py-1 rounded-md bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors">Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2" data-label="User">
+                  <div>
+                    <div className="font-semibold">user@example.com</div>
+                    <div className="text-slate-500 text-xs">Regular User</div>
+                  </div>
+                </td>
+                <td className="px-3 py-2" data-label="Role">
+                  <span className="bg-blue-100 text-blue-600 rounded-md px-2 py-0.5 text-xs">User</span>
+                </td>
+                <td className="px-3 py-2" data-label="Status">
+                  <span className="bg-green-100 text-green-600 rounded-md px-2 py-0.5 text-xs">Active</span>
+                </td>
+                <td className="px-3 py-2" data-label="Last Login">2024-07-26 13:45:10</td>
+                <td className="px-3 py-2" data-label="Actions">
+                  <button className="px-3 py-1 rounded-md bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors">Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2" data-label="User">
+                  <div>
+                    <div className="font-semibold">viewer@example.com</div>
+                    <div className="text-slate-500 text-xs">Read Only</div>
+                  </div>
+                </td>
+                <td className="px-3 py-2" data-label="Role">
+                  <span className="bg-slate-100 text-slate-500 rounded-md px-2 py-0.5 text-xs">Viewer</span>
+                </td>
+                <td className="px-3 py-2" data-label="Status">
+                  <span className="bg-yellow-100 text-yellow-700 rounded-md px-2 py-0.5 text-xs">Inactive</span>
+                </td>
+                <td className="px-3 py-2" data-label="Last Login">2024-07-25 09:20:15</td>
+                <td className="px-3 py-2" data-label="Actions">
+                  <button className="px-3 py-1 rounded-md bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* System Information */}
-      <div className="card">
-        <h3 className="section-title">System Information</h3>
-        <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+      <div className="bg-white rounded-xl shadow-sm p-6">
+        <h3 className="text-[clamp(18px,4vw,20px)] font-semibold mb-4">System Information</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div>
-            <div className="metric-label">Version</div>
-            <div style={{ fontWeight: 600 }}>1.2.3</div>
+            <div className="text-slate-500 mb-2 text-[clamp(12px,3vw,14px)]">Version</div>
+            <div className="font-semibold">1.2.3</div>
           </div>
           <div>
-            <div className="metric-label">Build Date</div>
-            <div style={{ fontWeight: 600 }}>2024-07-26</div>
+            <div className="text-slate-500 mb-2 text-[clamp(12px,3vw,14px)]">License</div>
+            <div className="font-semibold">MIT</div>
           </div>
           <div>
-            <div className="metric-label">Environment</div>
-            <div style={{ fontWeight: 600 }}>Production</div>
-          </div>
-          <div>
-            <div className="metric-label">Database</div>
-            <div style={{ fontWeight: 600 }}>PostgreSQL 14.5</div>
+            <div className="text-slate-500 mb-2 text-[clamp(12px,3vw,14px)]">Last Updated</div>
+            <div className="font-semibold">2024-07-25</div>
           </div>
         </div>
       </div>
