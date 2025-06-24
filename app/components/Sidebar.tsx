@@ -53,7 +53,7 @@ const Sidebar = React.memo(function Sidebar({ onClose }: SidebarProps) {
                 <li key={item.label} className="mb-4">
                   <Link 
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-[clamp(14px,3vw,16px)] transition-all ${active ? 'bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'text-slate-500 hover:bg-slate-200 hover:text-slate-800'}`}
+                    className={`block px-3 py-2 rounded-md text-[clamp(14px,3vw,16px)] transition-all text-white ${active ? 'bg-blue-600 font-semibold hover:bg-blue-700' : 'hover:bg-slate-200'}`}
                     onClick={handleNavClick}
                   >
                     {item.label}
