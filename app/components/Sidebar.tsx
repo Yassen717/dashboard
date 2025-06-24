@@ -21,26 +21,23 @@ const Sidebar = React.memo(function Sidebar({ onClose }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const { signOut } = useAuth();
-  
+
   const handleLogout = React.useCallback(async () => {
     await signOut();
     router.push("/login");
   }, [signOut, router]);
-  
+
   const handleNavClick = () => {
-    // Close sidebar on mobile when navigation item is clicked
     if (onClose) {
       onClose();
     }
   };
-  
+
   const isActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
+    if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
-  
+
   return (
     <aside className="w-[240px] bg-slate-100 min-h-screen py-8 px-4 flex flex-col justify-between transition-transform duration-300">
       <div className="flex-1">
@@ -53,7 +50,11 @@ const Sidebar = React.memo(function Sidebar({ onClose }: SidebarProps) {
                 <li key={item.label} className="mb-4">
                   <Link 
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-[clamp(14px,3vw,16px)] transition-all text-white ${active ? 'bg-blue-600 font-semibold hover:bg-blue-700' : 'hover:bg-slate-200'}`}
+                    className={`block px-3 py-2 rounded-md text-[clamp(14px,3vw,16px)] font-medium transition-all ${
+                      active 
+                        ? "bg-blue-600 text-white hover:bg-blue-700"
+                        : "text-blue-600 hover:bg-slate-200"
+                    }`}
                     onClick={handleNavClick}
                   >
                     {item.label}
@@ -74,4 +75,4 @@ const Sidebar = React.memo(function Sidebar({ onClose }: SidebarProps) {
   );
 });
 
-export default Sidebar; 
+export default Sidebar;

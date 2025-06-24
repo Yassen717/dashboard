@@ -404,12 +404,13 @@ body {
   background: #b91c1c;
 }
 
-a {
+/* Restrict global link color to content area only */
+.main-content a {
   color: #2563eb;
   text-decoration: none;
 }
 
-a:hover {
+.main-content a:hover {
   text-decoration: underline;
 }
 
